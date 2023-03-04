@@ -1,6 +1,5 @@
 package com.xworkz.gods.dto;
 
-import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -9,7 +8,6 @@ import lombok.Data;
 
 @Data
 public class GodDto {
-   @Id
   
 	private int id;
    @NotNull
@@ -22,3 +20,4 @@ public class GodDto {
    @NotBlank(message = "religion should not null")
 	private String religion;
 }
+

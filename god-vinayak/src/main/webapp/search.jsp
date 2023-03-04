@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
 <meta charset="ISO-8859-1">
 <title>X-workz</title>
 <link
@@ -19,20 +21,26 @@
 	<nav class="navbar navbar-expand-lg-navbar-Light bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
-				src="https://www.airindia.in/assets/images/logo.svg"
+				src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZVpDXX0ujsuQS_asgWczXWcoCHatL_F1wcQ&usqp=CAU"
 				" width="80" height="48" class="d-inline-block align text-top">
-			</a> <a href="aero">register</a> <a href="index.jsp">Home</a>
+			</a> <a href="aero">register</a> 
+			<a href="index.jsp">Home</a>
+			<a href="updateGod.jsp">updateGod</a>
 		</div>
 	</nav>
 	<h4 style="color: red">${mesage}</h4>
+	
 	<form action="Search">
-		<input type="search" name="id"> <input type="submit"
-			value="search">
+		<input type="search" name="id"> 
+		
+		<input type="submit" value="search">
 	</form>
+	
+	
 	<h5 style="color: green;">
-		<br> Name:${dto.name}<br>
-		Vehicle:${dto.vehicle}<br> Religion:${dto.religion}<br>
-		Country:${dto.counties}<br>
+		<br> Name:${var.name}<br>
+		Vehicle:${var.vehicle}<br> Religion:${var.religion}<br>
+		Country:${var.counties}<br>
 	</h5>
 
 </body>

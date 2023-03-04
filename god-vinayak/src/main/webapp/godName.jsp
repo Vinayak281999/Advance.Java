@@ -16,15 +16,23 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
 	crossorigin="anonymous"></script>
+	
+
+ 
 </head>
+
 <body>
+
+
+
 	<nav class="navbar navbar-expand-lg-navbar-Light bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
-				src="https://www.airindia.in/assets/images/logo.svg"
+				src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7rMaLKAvFzTw01nUczwLZ-NfbxV7lnLtqcw&usqp=CAU"
 				alt="" width="80" height="48" class="d-inline-block align text-top">
 			</a> <a href="index.jsp">Home</a>
 			<a href="search.jsp">search</a>
+			<a href="updateGod.jsp">updateGod</a>
 		</div>
 	</nav>
 	<h5 style="color: green;"> ${message}</h5>
@@ -35,6 +43,9 @@
 	</c:forEach>
 	</h5>
 	<form action="aero" method="post">
+	
+	
+
 	Name <input type="text" name="name"/>
 	<br>
 	vehicle <input type="text" name="vehicle"/>
@@ -54,6 +65,8 @@
 	</select>
 	<br>
 	<input type="submit" value="send">
+	
 </form>
+
 </body>
 </html>

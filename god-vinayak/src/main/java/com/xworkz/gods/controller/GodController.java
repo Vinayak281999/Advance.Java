@@ -7,6 +7,7 @@ import java.util.Set;
 
 import javax.validation.ConstraintViolation;
 
+import org.apache.taglibs.standard.lang.jstl.test.beans.PublicBean1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,9 +65,10 @@ public class GodController {
 	}
 	@GetMapping("/Search")
 	public String getSearch(Model model,@RequestParam int id) {
+		
 		GodDto adto= this.godService.findByid(id);
 		if (adto!=null) {
-			model.addAttribute("dto", adto);	
+			model.addAttribute("var", adto);	
 			
 		} else {
 
@@ -76,4 +78,55 @@ public class GodController {
 		return "search";
 		
 	}
-}
+	@GetMapping("/findByName")
+	public String onFindByName(@RequestParam String name, Model model) {
+
+		System.out.println("Inside onSearchByDepo in controller " + name);
+		List<GodDto> list = this.godService.findByName(name);
+		model.addAttribute("list", list);
+
+		return "searchByName";
+	}
+	@GetMapping("/update")
+	public String onUpdate(@RequestParam int id, Model model) {
+		System.out.println("running onUpdate"+id);
+		GodDto dto=this.godService.findByid(id);
+		model.addAttribute("dto", dto);
+		model.addAttribute("religion", religion);
+		model.addAttribute("country", counties);
+	
+		return "updateGod";
+	}
+		@PostMapping("/update")
+		public String onUpdate(GodDto dto, Model model) {
+			System.out.println("running onUpdate"+dto);
+		Set<ConstraintViolation<GodDto>> constraintViolations=this.godService.validateAndUpdate(dto);
+		
+		if (constraintViolations.size()>0) {
+			model.addAttribute("errors",constraintViolations);
+			
+		} else {
+			model.addAttribute("message","God update Success.");
+
+		}
+		return "updateGod";
+		
+		
+		}
+		@GetMapping("/delete")
+		public String onDelete(@RequestParam int id, Model model) {
+			System.out.println("on delete Running");
+			System.out.println("deleting:" +id);
+			
+			boolean dto=godService.onDelete(id);
+			
+			model.addAttribute("delete", dto);
+			model.addAttribute("message", "Data deleted Succsesfully");
+			
+			return "searchByName";
+			
+		}
+	}
+
+
+
